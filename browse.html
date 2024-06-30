@@ -3,79 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navegar por Vídeos</title>
+    <title>TigerFlix</title>
     <style>
-        /* Estilos CSS para melhorar a aparência */
+        /* Estilos gerais */
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
-        h1 {
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
         }
-        #video-list {
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .video-list {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        #video-list li {
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            background-color: #f9f9f9;
+        .video-item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
         }
-        video {
+        .video-item img {
             width: 100%;
+            height: auto;
         }
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 10px;
-            box-sizing: border-box;
+        .video-item h2 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .video-item p {
+            margin: 0;
+            padding: 0 10px 10px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <h1>Lista de Vídeos</h1>
-    <input type="text" id="searchInput" onkeyup="filterVideos()" placeholder="Buscar vídeos...">
-    <ul id="video-list">
-        <!-- Lista de vídeos -->
-        <li>
-            <h2>Video 1</h2>
-            <p>Descrição do vídeo 1.</p>
-            <video controls>
-                <source src="video1.mp4" type="video/mp4">
-                Seu navegador não suporta vídeo em HTML5.
-            </video>
-        </li>
-        <li>
-            <h2>Video 2</h2>
-            <p>Descrição do vídeo 2.</p>
-            <video controls>
-                <source src="video2.mp4" type="video/mp4">
-                Seu navegador não suporta vídeo em HTML5.
-            </video>
-        </li>
-        <!-- Adicione mais vídeos conforme necessário -->
-    </ul>
-
-    <script>
-        function filterVideos() {
-            var input, filter, ul, li, h2, i, txtValue;
-            input = document.getElementById('searchInput');
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("video-list");
-            li = ul.getElementsByTagName('li');
-    
-            for (i = 0; i < li.length; i++) {
-                h2 = li[i].getElementsByTagName("h2")[0];
-                txtValue = h2.textContent || h2.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+    <header>
+        <div class="container">
+            <h1>TigerFlix</h1>
+        </div>
+    </header>
+    <div class="container">
+        <ul class="video-list">
+            <li class="video-item">
+                <img src="video1.jpg" alt="Video 1">
+                <h2>Video 1</h2>
+                <p>Descrição do vídeo 1.</p>
+            </li>
+            <li class="video-item">
+                <img src="video2.jpg" alt="Video 2">
+                <h2>Video 2</h2>
+                <p>Descrição do vídeo 2.</p>
+            </li>
+            <!-- Adicione mais vídeos conforme necessário -->
+        </ul>
+    </div>
 </body>
 </html>
